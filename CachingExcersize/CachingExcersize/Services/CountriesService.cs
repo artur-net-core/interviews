@@ -1,11 +1,13 @@
 ﻿using CachingExcersize.Database;
 using System.Collections.Generic;
+using System.Runtime.Caching;
 
 namespace CachingExcersize.Services
 {
-    class CountriesService
+    public class CountriesService
     {
         private readonly IDatabase _db;
+        private readonly MemoryCache _cache;
 
         public CountriesService(IDatabase db)
         {

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CachingExcersize.Database
 {
-    class Database : IDatabase
+    public class Database : IDatabase
     {
         private static readonly List<Country> Countries =
             new List<Country>
@@ -15,7 +16,20 @@ namespace CachingExcersize.Database
 
         public IReadOnlyList<Country> GetCountries()
         {
-            return Countries.AsReadOnly();
+            return Countries
+                .Select(c => new Country { Id = c.Id, Name = c.Name })
+                .ToList()
+                .AsReadOnly();
+        }
+
+        public void Update(int id, string name)
+        {
+            var country = Countries.FirstOrDefault(c => c.Id == id);
+
+            if (country != null)
+            {
+                country.Name = name;
+            }
         }
     }
 }

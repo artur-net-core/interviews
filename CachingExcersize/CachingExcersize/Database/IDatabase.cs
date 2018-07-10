@@ -2,8 +2,9 @@
 
 namespace CachingExcersize.Database
 {
-    interface IDatabase
+    public interface IDatabase
     {
         IReadOnlyList<Country> GetCountries();
+        void Update(int id, string name);
     }
 }
