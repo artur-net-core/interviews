@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadBalancer.Host", "LoadBalancer.Host\LoadBalancer.Host.csproj", "{196D652F-F77E-460E-8C38-D591DC72A04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadBalancer.Host", "LoadBalancer.Host\LoadBalancer.Host.csproj", "{196D652F-F77E-460E-8C38-D591DC72A04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiOne", "ApiOne\ApiOne.csproj", "{8ADBB147-3BCD-41EA-A19B-A5ABCCB7E9D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTwo", "ApiTwo\ApiTwo.csproj", "{9142C787-1CB5-40D7-AC62-8BA9FEC1545C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{196D652F-F77E-460E-8C38-D591DC72A04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{196D652F-F77E-460E-8C38-D591DC72A04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{196D652F-F77E-460E-8C38-D591DC72A04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ADBB147-3BCD-41EA-A19B-A5ABCCB7E9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADBB147-3BCD-41EA-A19B-A5ABCCB7E9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADBB147-3BCD-41EA-A19B-A5ABCCB7E9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADBB147-3BCD-41EA-A19B-A5ABCCB7E9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9142C787-1CB5-40D7-AC62-8BA9FEC1545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9142C787-1CB5-40D7-AC62-8BA9FEC1545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9142C787-1CB5-40D7-AC62-8BA9FEC1545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9142C787-1CB5-40D7-AC62-8BA9FEC1545C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
