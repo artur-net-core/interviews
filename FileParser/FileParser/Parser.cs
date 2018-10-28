@@ -30,7 +30,7 @@ namespace FileParser
 
         public static IEnumerable<Task<int>> ParseFile()
         {
-            if (string.IsNullOrEmpty(_path)) throw new ArgumentNullException(nameof(_path));
+            if (string.IsNullOrEmpty(_path)) throw new ArgumentNullException("_path");
 
             using (var file = File.Open(_path, FileMode.Open))
             {

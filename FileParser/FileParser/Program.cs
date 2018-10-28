@@ -8,7 +8,7 @@ namespace FileParser
         {
             Parser.SetFilePath("FileWithNumbers.txt");
             var lines = Parser.ParseAndLogIfNeeded();
-            var results = lines.Select(l => l.GetAwaiter().GetResult());
+            var results = lines.Select(l => l.Result);
             var numbers = results.ToList();
         }        
     }
