@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadBalancer.Host", "LoadBalancer.Host\LoadBalancer.Host.csproj", "{196D652F-F77E-460E-8C38-D591DC72A04B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{196D652F-F77E-460E-8C38-D591DC72A04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196D652F-F77E-460E-8C38-D591DC72A04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196D652F-F77E-460E-8C38-D591DC72A04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196D652F-F77E-460E-8C38-D591DC72A04B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6469C5CF-838D-44F7-9A35-00ABCE2BA557}
+	EndGlobalSection
+EndGlobal
