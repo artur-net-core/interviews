@@ -1,25 +1,26 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
+using LoadBalancer.Host.Counters;
+using LoadBalancer.Host.Middlewares;
+using Microsoft.Extensions.Configuration;
 
 namespace LoadBalancer.Host
 {
     public class Startup
     {
-        private static readonly IReadOnlyList<string> Hosts = new List<string>
-        {
-            "http://localhost:5001",
-            "http://localhost:5002"
-        }.AsReadOnly();
+        private readonly IConfiguration _configuration;
 
-        private static int Counter = 0;
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+            services.AddSingleton<ICounter, InMemoryCounter>();
+            services.Configure<Config.Config>(_configuration.GetSection(nameof(Config.Config)));
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -29,24 +30,7 @@ namespace LoadBalancer.Host
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                Interlocked.Increment(ref Counter);
-                var host = Hosts[Counter % Hosts.Count];
-
-                using (var client = new HttpClient())
-                {
-                    var contextRequest = context.Request;
-                    client.BaseAddress = new Uri(host);
-                    var request = new HttpRequestMessage(new HttpMethod(contextRequest.Method), contextRequest.Path.ToString());
-                    var response = await client.SendAsync(request);
-
-                    context.Response.StatusCode = (int)response.StatusCode;
-                    await response.Content.CopyToAsync(context.Response.Body);
-                }
-
-                Interlocked.CompareExchange(ref Counter, 0, int.MaxValue - (Hosts.Count + 1));
-            });
+            app.UseMiddleware<LoadBalancerMiddleware>();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace LoadBalancer.Tests
         public async Task Test1()
         {
             string[] responses;
-            const int tasksCount = 100;
+            const int tasksCount = 1000;
 
             using (var client = new HttpClient())
             {

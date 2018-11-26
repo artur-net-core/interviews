@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace LoadBalancer.Host
 {
@@ -12,6 +13,12 @@ namespace LoadBalancer.Host
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((builderContext, config) =>
+                    {
+                        config.SetBasePath(builderContext.HostingEnvironment.ContentRootPath);
+                        config.AddJsonFile("Config\\config.json", false, true);
+                    })
+                .UseKestrel()
                 .UseStartup<Startup>();
     }
 }
